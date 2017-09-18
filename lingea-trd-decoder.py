@@ -5,7 +5,7 @@
 # Result is <header>\t<definition> file, convertable easily
 # by stardict-editor from package stardict-tools into native
 # Stardict dictionary (stardict.sf.net and www.stardict.org)
-# 
+#
 # Copyright (C) 2007 - Klokan Petr Přidal (www.klokan.cz)
 #
 # Based on script CobuildConv.rb by Nomad
@@ -66,7 +66,7 @@
 # Decoding for 2000 and Pocket series.
 #
 # - Ing. Josef Riha ( jose1711 | gmail.com )
-# Slovak letters support 
+# Slovak letters support
 #
 # <write your name here>
 #
@@ -119,7 +119,7 @@ except getopt.GetoptError:
    usage()
    print "ERROR: Bad option"
    sys.exit(2)
-   
+
 import locale
 DEBUG = False
 OUTSTYLE = 2
@@ -147,7 +147,7 @@ for o, a in opts:
       usage()
       sys.exit(0)
    if o in ("-l", "--debug-limit"):
-      # Number of wrong records for printing to stop during debugging 
+      # Number of wrong records for printing to stop during debugging
       DEBUGLIMIT = locale.atoi(a)
 # FILENAME is a first parameter on the command line now
 
@@ -352,7 +352,7 @@ def pronunciation_encode(s):
         s = s.replace(upcase[i], upcase_pron[i])
     return s
 
-re_a = re.compile(r'<a(.*?)>') 
+re_a = re.compile(r'<a(.*?)>')
 re_c = re.compile(r'<c(.*?)>')
 re_d = re.compile(r'<d(.*?)>')
 re_e = re.compile(r'<e(.*?)>')
@@ -360,19 +360,19 @@ re_E = re.compile(r'<E(.*?)>')
 re_f = re.compile(r'<f(.*?)>')
 re_g = re.compile(r'<g(.*?)>') #language
 re_h = re.compile(r'<h(.*?)>')
-re_i = re.compile(r'<i(.*?)>') 
-re_I = re.compile(r'<I(.*?)>') 
-re_l = re.compile(r'<l(.*?)>') 
-re_L = re.compile(r'<L(.*?)>') 
-re_n = re.compile(r'<n(.*?)>') 
-re_N = re.compile(r'<N(.*?)>') 
-re_o = re.compile(r'<o(.*?)>') 
-re_p = re.compile(r'<p(.*?)>') 
-re_q = re.compile(r'<q(.*?)>') 
-re_r = re.compile(r'<r(.*?)>') 
-re_t = re.compile(r'<t(.*?)>') 
-re_u = re.compile(r'<u(.*?)>') 
-re_v = re.compile(r'<v(.*?)>') 
+re_i = re.compile(r'<i(.*?)>')
+re_I = re.compile(r'<I(.*?)>')
+re_l = re.compile(r'<l(.*?)>')
+re_L = re.compile(r'<L(.*?)>')
+re_n = re.compile(r'<n(.*?)>')
+re_N = re.compile(r'<N(.*?)>')
+re_o = re.compile(r'<o(.*?)>')
+re_p = re.compile(r'<p(.*?)>')
+re_q = re.compile(r'<q(.*?)>')
+re_r = re.compile(r'<r(.*?)>')
+re_t = re.compile(r'<t(.*?)>')
+re_u = re.compile(r'<u(.*?)>')
+re_v = re.compile(r'<v(.*?)>')
 re_w = re.compile(r'<w(.*?)>')
 re_x = re.compile(r'<x(.*?)>')
 re_y = re.compile(r'<y(.*?)>')
@@ -511,7 +511,7 @@ def decode(stream):
             result += tag['on'][0] + outStr("Header origin note: %s") +  tag['on'][1]
         if headerFlag & 0x80:
             result += tag['pr'][0] + pronunciation_encode(outStr("Header pronunciation: %s")) + tag['pr'][1]
-    
+
     # Header data block
     if mainFlag & 0x02:
         headerFlag = outInt("Header headerFlag: %s") # Blocks in header
@@ -545,7 +545,7 @@ def decode(stream):
 
     #result += ': '
     li = 0
- 
+
     #print just every first word class identifier
     # TODO: this is not systematic (should be handled by output)
     global lastWordClass
@@ -565,7 +565,7 @@ def decode(stream):
                 result += tag['sa'][0] + outStr("Data sample variant: %s") +  tag['sa'][1]
             if sampleFlag & 0x04:
                s = outInt("Data wordclass: %s")
-               if s != lastWordClass: 
+               if s != lastWordClass:
                   if s < 32:
                       result += tag['wc'][0] + wordclass[s] + tag['wc'][1]
                   else:
@@ -647,7 +647,7 @@ def decode(stream):
                 item += tag['ps'][0] + outStr("Data phrase short form: %s") + tag['ps'][1]
 
 
-            # TODO: be careful in changing the rules, to have back compatibility! 
+            # TODO: be careful in changing the rules, to have back compatibility!
         if dataFlag & 0x40: # reference, related language
             referenceFlag = outInt("Data referenceFlag: %s")
             if referenceFlag & 0x01:
@@ -905,7 +905,7 @@ subs = {
            '#CEDIL#c': 'ʀ',
            'hi': 'ɥ',
            'nh': 'ɲ',
-           'ex': 'ɛ̃', 
+           'ex': 'ɛ̃',
            'cv': 'ɔ̃',
            'ov': 'œ̃',
            'av': 'ɑ̃'
