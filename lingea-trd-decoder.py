@@ -50,6 +50,7 @@
 # lg_frcz-1f.trd
 # lg_grcz-eco.trd
 # lg_grcz-1.trd
+# lg_grcz-2.trd
 # lg_grsk-2.trd
 # lg_sken-2.trd
 # lg_sken-2_.trd
@@ -694,7 +695,7 @@ def decode(stream):
             result += item
 
     ok = True
-    if (len(stream) != 13752) and (len(stream) != 21988) and (len(stream) != 16204) and (len(stream) != 12656): #hack to workaround bug in some dicts (lg_czen-eco, lg_encz-ind, lg_czgr-eco, lg_grsk-2)
+    if (len(stream) != 13752) and (len(stream) != 21988) and (len(stream) != 16204) and (len(stream) != 12656) and (len(stream) != 30696) : #hack to workaround bug in some dicts (lg_czen-eco, lg_encz-ind, lg_czgr-eco, lg_grsk-2, lg_grcz-2.trd)
        while pos < len(stream):
            ok = (outInt() == 0x00) and ok
 
