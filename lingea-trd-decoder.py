@@ -12,6 +12,7 @@
 # http://hp.vector.co.jp/authors/VA005784/cobuild/cobuildconv.html
 #
 # Version history:
+# 0.9 (18. 9. 2017) Patch by Petr Dlouhy, fix linting, Python 3 supoort
 # 0.8 (2. 9. 2012) Obsolete <span> tags updated
 # 0.7 (19. 6. 2008) Patch by Petr Dlouhy, added support for many new dicts
 # 0.6 (29. 5. 2008) Patch by Petr Dlouhy
@@ -100,7 +101,7 @@ import sys
 from struct import unpack
 
 # VERSION
-VERSION = "0.8"
+VERSION = "0.9"
 
 
 def usage():
