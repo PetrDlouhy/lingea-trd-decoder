@@ -12,14 +12,15 @@
 # http://hp.vector.co.jp/authors/VA005784/cobuild/cobuildconv.html
 #
 # Version history:
-# 0.7 (19.6.2008) Patch by Petr Dlouhy, added support for many new dicts
-# 0.6 (29.5.2008) Patch by Petr Dlouhy, added support for French-Czech and Spanish-Czech dictionaries; automatic encoding selection; all unrecognized characters are printed now as #something# (note: some of them are bugs in Lingea dictionaries); typo
-# 0.5 (3.12.2007) Patch by Petr Dlouhy, iPaq and 2000 dicts support
+# 0.8 (2. 9. 2012) Obsolete <span> tags updated
+# 0.7 (19. 6. 2008) Patch by Petr Dlouhy, added support for many new dicts
+# 0.6 (29. 5. 2008) Patch by Petr Dlouhy, added support for French-Czech and Spanish-Czech dictionaries; automatic encoding selection; all unrecognized characters are printed now as #something# (note: some of them are bugs in Lingea dictionaries); typo
+# 0.5 (3. 12. 2007) Patch by Petr Dlouhy, iPaq and 2000 dicts support
 #                 Patch by Josef Riha 
-# 0.4 (30.10.2007) Patch by Petr Dlouhy, optional HTML generation
-# 0.3 (28.10.2007) Patch by Petr Dlouhy, cleanup, bugfix. More dictionaries.
-# 0.2 (19.7.2007) Changes, documentation, first 100% dictionary
-# 0.1 (20.5.2006) Initial version based on Nomad specs
+# 0.4 (30. 10. 2007) Patch by Petr Dlouhy, optional HTML generation
+# 0.3 (28. 10. 2007) Patch by Petr Dlouhy, cleanup, bugfix. More dictionaries.
+# 0.2 (19. 7. 2007) Changes, documentation, first 100% dictionary
+# 0.1 (20. 5. 2006) Initial version based on Nomad specs
 #
 # Supported dictionaries:
 # - Lingea Německý Kapesní slovník
@@ -28,7 +29,7 @@
 # - Lingea 2000 series (theoretically all of them)
 # - Lingea Pocket series
 #
-# Tested on this dicts:
+# Tested on these dicts:
 # lg_czen-eco.trd
 # lg_czen-ind.trd
 # lg_czen-law.trd
@@ -85,7 +86,7 @@
 # Boston, MA 02111-1307, USA.
 
 # VERSION
-VERSION = "0.7"
+VERSION = "0.8"
 
 import getopt, sys
 def usage():
@@ -231,39 +232,38 @@ if OUTSTYLE == 1:
           }
 if OUTSTYLE == 2:
     tag = {
-           'db':('•'                                                 ,''),              #Data beginning
-           'rn':(''                                                  ,'\t'),            #Record name
-           'va':(''                                                  ,' '),             #Header variant
-           'wc':('<span size="larger" color="darkred" weight="bold">','</span>\\n'),    #WordClass
-           'pa':('<span size="larger" color="darkred" weight="bold">',':</span>\\n'),   #Header parts
-           'fo':('('                                                 ,') '),            #Header forms
-           'on':('<span color="blue">('                              ,')</span>\\n' ),  #Header origin note
-           'pr':('['                                                 ,']\\n'),          #Header pronunciation; not printed by Lingea
-           'du':('('                                                 ,')'),             #Data sub example
-           'dc':('('                                                 ,')'),             #Data sub shortcut
-           'hs':('('                                                 ,')\\n'),          #Header source
-           'dv':('{'                                                 ,'} '),            #Header dataVariant
-           'sh':(''                                                  ,'\\n'),           #Header shortcut
-           'pv':('/'                                                 ,'/\\n'),          #Header plural variant
-           'ex':('('                                                 ,')\\n'),          #Header example
-           'sa':('    <span color="darkred" weight="bold">'          ,'</span>\\n' ),   #Data sample
-           'sw':(''                                                  ,''),              #Data sample wordclass; is not printed by Lingea (it is printed in only in French?)
-           'do':('    <span color="darkred" weight="bold">'          ,'</span> ' ),     #Data origin note
-           'df':('    <span weight="bold">'                          ,'</span>\\n'),    #Data definition
-           'nt':(''                                                  ,''),              #Data note
-           'ps':('    <span color="dimgray" weight="bold">'          ,'</span>\\n'),    #Data phrase short form
-           'pg':('    <span color="darkgreen" style="italic">'       ,'</span> '),      #Data phrase green
-           'pc':('    <span color="darkgreen" style="italic">'       ,'</span> '),      #Data phrase comment; this comment is not printed by Lingea, but it seems useful
-           'p1':('    <span color="dimgray" style="italic">'         ,'</span> '),      #Data phrase 1
-           'p2':('      '                                            ,'\\n' ),          #Data phrase 2
-           'rs':('SYNONYM: '                                         ,'\\n' ),          #Reference synonym
-           'rr':('HYPERNYM: '                                        ,'\\n' ),          #Reference hypernym
-           'rp':('HYPONYM: '                                         ,'\\n' ),          #Reference hyponym
-           'sp':('    <span color="cyan">'                           ,'</span>\\n' ),   #Data simple phrase
-           'b1':('"'                                                 ,' = '),           #Data phrase (block) 1
-           'b2':('" '                                                ,''),              #Data phrase (block) 2
-          }
-
+           'db':('•'                                                 , ''),              #Data beginning
+           'rn':(''                                                  , '\t'),            #Record name
+           'va':(''                                                  , ' '),             #Header variant
+           'wc':('<span style="font-size: larger; color: darkred; font-weight: bold">', '</span>\\n'),    #WordClass
+           'pa':('<span style="font-size: larger; color: darkred; font-weight: bold">', ':</span>\\n'),   #Header parts
+           'fo':('('                                                 , ') '),            #Header forms
+           'on':('<span style="color: blue">('                       , ')</span>\\n' ),  #Header origin note
+           'pr':('['                                                 , ']\\n'),          #Header pronunciation; not printed by Lingea
+           'du':('('                                                 , ')'),             #Data sub example
+           'dc':('('                                                 , ')'),             #Data sub shortcut
+           'hs':('('                                                 , ')\\n'),          #Header source
+           'dv':('{'                                                 , '} '),            #Header dataVariant
+           'sh':(''                                                  , '\\n'),           #Header shortcut
+           'pv':('/'                                                 , '/\\n'),          #Header plural variant
+           'ex':('('                                                 , ')\\n'),          #Header example
+           'sa':('    <span style="color: darkred; font-weight: bold">', '</span>\\n' ),   #Data sample
+           'sw':(''                                                  , ''),              #Data sample wordclass; is not printed by Lingea (it is printed in only in French?)
+           'do':('    <span style="color: darkred; font-weight: bold">', '</span> ' ),     #Data origin note
+           'df':('    <span style="font-weight: bold">'              , '</span>\\n'),    #Data definition
+           'nt':(''                                                  , ''),              #Data note
+           'ps':('    <span style="color: dimgray; font-weight: bold">', '</span>\\n'),    #Data phrase short form
+           'pg':('    <span style="color: darkgreen; font-style: italic">', '</span> '),      #Data phrase green
+           'pc':('    <span style="color: darkgreen; font-style: italic">', '</span> '),      #Data phrase comment; this comment is not printed by Lingea, but it seems useful
+           'p1':('    <span style="color: dimgray; font-style: italic">', '</span> '),      #Data phrase 1
+           'p2':('      '                                            , '\\n' ),          #Data phrase 2
+           'rs':('SYNONYM: '                                         , '\\n' ),          #Reference synonym
+           'rr':('HYPERNYM: '                                        , '\\n' ),          #Reference hypernym
+           'rp':('HYPONYM: '                                         , '\\n' ),          #Reference hyponym
+           'sp':('    <span style="color: cyan">'                    , '</span>\\n' ),   #Data simple phrase
+           'b1':('"'                                                 , ' = '),           #Data phrase (block) 1
+           'b2':('" '                                                , ''),              #Data phrase (block) 2
+           }
 
 
 # Print color debug functions
@@ -387,59 +387,59 @@ def decode_tag_postprocessing(input):
     # TODO: Better output handling
 
     if (OUTSTYLE == 0) or (OUTSTYLE == 1):
-        s = re_a.sub(r'(\1)',s)
-        s = re_c.sub(r'(\1)',s)
-        s = re_d.sub(r'(\1)',s)
-        s = re_e.sub(r'(\1)',s)
-        s = re_E.sub(r'(\1)',s)
-        s = re_f.sub(r'(\1)',s)
-        s = re_g.sub(r'(\1)',s)
-        s = re_h.sub(r'(\1)',s)
-        s = re_i.sub(r'(\1)',s)
-        s = re_I.sub(r'(\1)',s)
-        s = re_l.sub(r'(\1)',s)
-        s = re_L.sub(r'(\1)',s)
-        s = re_n.sub(r'(\1)',s)
-        s = re_N.sub(r'(\1)',s)
-        s = re_o.sub(r'(\1)',s)
-        s = re_p.sub(r'(\1)',s)
-        s = re_q.sub(r'(\1)',s)
-        s = re_r.sub(r'(\1)',s)
-        s = re_t.sub(r'(\1)',s)
-        s = re_u.sub(r'(\1)',s)
-        s = re_v.sub(r'(\1)',s)
-        s = re_w.sub(r'(\1)',s)
-        s = re_x.sub(r'(\1)',s)
-        s = re_y.sub(r'(\1)',s)
-        s = re_z.sub(r'(\1)',s)
-        s = re__.sub(r'(\1)',s)
+        s = re_a.sub(r'(\1)', s)
+        s = re_c.sub(r'(\1)', s)
+        s = re_d.sub(r'(\1)', s)
+        s = re_e.sub(r'(\1)', s)
+        s = re_E.sub(r'(\1)', s)
+        s = re_f.sub(r'(\1)', s)
+        s = re_g.sub(r'(\1)', s)
+        s = re_h.sub(r'(\1)', s)
+        s = re_i.sub(r'(\1)', s)
+        s = re_I.sub(r'(\1)', s)
+        s = re_l.sub(r'(\1)', s)
+        s = re_L.sub(r'(\1)', s)
+        s = re_n.sub(r'(\1)', s)
+        s = re_N.sub(r'(\1)', s)
+        s = re_o.sub(r'(\1)', s)
+        s = re_p.sub(r'(\1)', s)
+        s = re_q.sub(r'(\1)', s)
+        s = re_r.sub(r'(\1)', s)
+        s = re_t.sub(r'(\1)', s)
+        s = re_u.sub(r'(\1)', s)
+        s = re_v.sub(r'(\1)', s)
+        s = re_w.sub(r'(\1)', s)
+        s = re_x.sub(r'(\1)', s)
+        s = re_y.sub(r'(\1)', s)
+        s = re_z.sub(r'(\1)', s)
+        s = re__.sub(r'(\1)', s)
     if OUTSTYLE == 2:
-        s = re_a.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_c.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_d.sub(r'<span size="small" color="blue">(\1)</span>',s)
-        s = re_e.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_E.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_f.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_g.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_h.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_i.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_I.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_l.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_L.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_n.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_N.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_o.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_p.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_q.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_r.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_t.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_u.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_v.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_w.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_x.sub(r'<span size="small" color="brown" style="italic">\1</span>',s)
-        s = re_y.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re_z.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
-        s = re__.sub(r'<span size="small" color="blue" style="italic">\1</span>',s)
+        s = re_a.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_c.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_d.sub(r'<span style="font-size: small; color: blue">(\1)</span>', s)
+        s = re_e.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_E.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_f.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_g.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_h.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_i.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_I.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_l.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_L.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_n.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_N.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_o.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_p.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_q.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_r.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_t.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_u.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_v.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_w.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_x.sub(r'<span style="font-size: small; color: brown; font-style: italic">\1</span>', s)
+        s = re_y.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re_z.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
+        s = re__.sub(r'<span style="font-size: small; color: blue; font-style: italic">\1</span>', s)
 
     return s
 
@@ -459,7 +459,7 @@ def outInt( comment = "" ):
     """Read next byte and output DEBUG info"""
     global bs, pos
 
-    if DEBUG: print "%03d %s %s | %03d" % (pos, toBin(bs[pos]),comment, pos)
+    if DEBUG: print "%03d %s %s | %03d" % (pos, toBin(bs[pos]), comment, pos)
     if (comment.find('%') != -1):
          comment = comment % bs[pos]
     pos += 1
@@ -473,7 +473,7 @@ def outStr( comment = "" ):
     s = s.split('\x00')[0] # give me string until first NULL
     if (comment.find('%') != -1):
         comment = comment % s
-    if DEBUG: print "%03d %s %s | %s" % (pos, toBin(bs[pos]),comment, s)
+    if DEBUG: print "%03d %s %s | %s" % (pos, toBin(bs[pos]), comment, s)
     pos += triple + 1
     return s.replace('`','') # Remove '`' character from words
 
@@ -923,7 +923,7 @@ bases = unpack("<%sL" % indexBaseCount, f.read(indexBaseCount * 4))
 if smallIndex: # In small dictionaries every base is used 4-times
     bases4 = []
     for i in bases:
-        bases4.extend([i,i,i,i])
+        bases4.extend([i, i, i, i])
     bases = bases4
 for b in bases:
     offsets = unpack("<64H", f.read(64*2))
@@ -936,7 +936,7 @@ for b in bases:
 
 if DEBUG:
     # PRINTOUT DEBUG OF FIRST <DEBUGLIMIT> WRONG RECORDS:
-    for i in range(1,entryCount):
+    for i in range(1, entryCount):
         if not DEBUGALL:
             DEBUG = False
         s = decode(getRec(i))
@@ -954,7 +954,7 @@ if DEBUG:
     DEBUG = True
 else:
     # DECODE EACH RECORD AND PRINT IT IN FORMAT FOR stardict-editor <term>\t<definition>
-    for i in range(1,entryCount):
+    for i in range(1, entryCount):
         s = decode(getRec(i))
         if s.endswith('\n'):
             print s,
