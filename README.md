@@ -17,7 +17,7 @@ http://www.klokan.cz/projects/stardict-lingea/
 Usage:
 ------
 
-Download `lingea-trd-decoder.py` file (clone GIT repository or [directly from GitHub](https://raw.githubusercontent.com/PetrDlouhy/lingea-trd-decoder/master/lingea-trd-decoder.py))
+Download [lingea-trd-decoder.py](https://raw.githubusercontent.com/PetrDlouhy/lingea-trd-decoder/master/lingea-trd-decoder.py) (or `git clone https://github.com/PetrDlouhy/lingea-trd-decoder.git`)
 
 Run folowing command:
 ```
